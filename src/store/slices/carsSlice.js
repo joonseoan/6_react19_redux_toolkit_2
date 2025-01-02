@@ -1,6 +1,5 @@
 // nanoid: uniq id produced by `@reduxjs/toolkit`
 import { createSlice, nanoid } from "@reduxjs/toolkit";
-import { reset } from "../actions";
 
 const carsSlice = createSlice({
   name: 'cars',
@@ -12,7 +11,7 @@ const carsSlice = createSlice({
     changeTerm(state, action) {
       state.searchTerm = action.payload;
     },
-    addCar(state, action) {
+    addCar(state, action) {      
       state.data.push({
         // some random id is required so each property is required separately
         id: nanoid(),
@@ -24,11 +23,6 @@ const carsSlice = createSlice({
       state.data.splice(index, 1);
     },
   },
-  // extraReducers(build) {
-  //   build.addCase(state, action) {
-    
-  //   }
-  // }
 });
 
 export const { changeTerm, addCar, removeCar } = carsSlice.actions;
